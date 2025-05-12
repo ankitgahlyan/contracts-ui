@@ -212,8 +212,8 @@ export const InteractTab = ({
   const isDispatchable = message?.isMutating || message?.isPayable;
 
   return (
-    <div className="grid w-full grid-cols-12">
-      <div className="col-span-6 w-full rounded-lg lg:col-span-6 2xl:col-span-7">
+    <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-12">
+      <div className="col-span-1 w-full rounded-lg md:col-span-6">
         <Form key={`${address}`}>
           <FormField
             className="caller mb-8"
@@ -267,20 +267,21 @@ export const InteractTab = ({
             />
           )}
         </Form>
-        <Buttons>
+        <Buttons className="mt-4 flex-wrap gap-2">
           {isDispatchable && (
             <Button
               isDisabled={callDisabled}
               isLoading={txs[txId]?.status === 'processing'}
               onClick={call}
               variant="primary"
+              className="w-full py-3 text-base md:w-auto"
             >
               Call contract
             </Button>
           )}
         </Buttons>
       </div>
-      <div className="col-span-6 w-full pl-10 lg:col-span-6 lg:pl-20 2xl:col-span-5">
+      <div className="col-span-1 w-full md:col-span-6 md:pl-10 lg:pl-20">
         {message && (
           <ResultsOutput
             message={message}

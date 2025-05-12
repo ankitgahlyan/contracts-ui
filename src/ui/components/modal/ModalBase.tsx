@@ -19,8 +19,8 @@ export const ModalBase = ({ isOpen, setIsOpen, title, children }: ModalProps) =>
   return (
     <>
       <Transition appear as={Fragment} show={isOpen}>
-        <Dialog as="div" className="z-99 fixed inset-0 overflow-y-auto " onClose={closeModal}>
-          <div className="min-h-screen px-4 text-center">
+        <Dialog as="div" className="z-99 fixed inset-0 overflow-y-auto" onClose={closeModal}>
+          <div className="min-h-screen px-0 text-center sm:px-4">
             <Transition.Child
               enter="ease-out duration-300"
               enterFrom="opacity-0"
@@ -45,7 +45,7 @@ export const ModalBase = ({ isOpen, setIsOpen, title, children }: ModalProps) =>
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="my-8 inline-block w-full  max-w-lg transform overflow-hidden rounded-xl bg-white text-left align-middle opacity-100 shadow-xl transition-all dark:bg-gray-900">
+              <div className="my-0 inline-block min-h-screen w-full max-w-full transform overflow-hidden rounded-none bg-white text-left align-middle opacity-100 shadow-xl transition-all dark:bg-gray-900 sm:my-8 sm:min-h-0 sm:max-w-lg sm:rounded-xl">
                 <div className="flex justify-between border-b border-gray-200 dark:border-gray-800">
                   <Dialog.Title
                     as="h3"

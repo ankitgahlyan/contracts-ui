@@ -14,7 +14,7 @@ interface Props extends React.HTMLAttributes<HTMLButtonElement> {
 }
 
 export function Buttons({ children, className }: React.HTMLAttributes<HTMLButtonElement>) {
-  return <div className={classes('flex space-x-2', className)}>{children}</div>;
+  return <div className={classes('flex flex-wrap gap-2', className)}>{children}</div>;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, Props>((props, ref) => {
@@ -22,7 +22,7 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>((props, ref) =>
 
   return (
     <button
-      className={classes('btn relative', variant, className)}
+      className={classes('btn relative px-4 py-3 text-base sm:text-sm', variant, className)}
       ref={ref}
       type="button"
       {...(isDisabled || isLoading ? { disabled: true } : {})}
