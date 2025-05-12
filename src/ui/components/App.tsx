@@ -17,8 +17,8 @@ export default function App() {
       <ApiContextProvider>
         <DatabaseContextProvider>
           <TransactionsContextProvider>
-            {/* we want the sidebar outside the outlet to prevent flickering in quicklinks */}
-            <div className="relative inset-0 flex min-h-screen overflow-hidden text-black dark:bg-gray-900 dark:text-white md:fixed md:flex-row">
+            {/* Responsive layout: flex-col on mobile, flex-row on md+ */}
+            <div className="relative inset-0 flex min-h-screen flex-col text-black dark:bg-gray-900 dark:text-white md:flex-row">
               <Sidebar />
               <CheckBrowserSupport>
                 <AwaitApis>

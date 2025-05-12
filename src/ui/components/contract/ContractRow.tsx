@@ -28,23 +28,21 @@ export function ContractRow({ contract: { address, name, date } }: Props) {
 
   return (
     <Link
-      className={`grid w-full cursor-pointer grid-cols-4 items-center border border-l-0 border-r-0 border-t-0 border-gray-200 p-3 text-sm last:border-b-0 hover:bg-gray-50 dark:border-gray-700 dark:text-white dark:hover:bg-elevation-1`}
+      className={`grid w-full cursor-pointer grid-cols-1 items-center gap-y-2 border border-l-0 border-r-0 border-t-0 border-gray-200 p-3 text-sm last:border-b-0 hover:bg-gray-50 dark:border-gray-700 dark:text-white dark:hover:bg-elevation-1 sm:grid-cols-4`}
       to={`/contract/${address}`}
     >
-      <div className="flex flex-row gap-2">
-        <Identicon size={18} value={address} />
-        <div>{name}</div>
+      <div className="flex flex-row items-center gap-2">
+        <Identicon size={24} value={address} />
+        <div className="max-w-[120px] truncate sm:max-w-none">{name}</div>
       </div>
-
       {isOnChain ? (
-        <div className="font-mono text-gray-500 dark:text-gray-400" title={address}>
+        <div className="break-all font-mono text-gray-500 dark:text-gray-400" title={address}>
           {truncate(address, 4)}
         </div>
       ) : (
         <div className="text-gray-500 dark:text-gray-400">not on-chain</div>
       )}
       <div className="text-gray-500 dark:text-gray-400">{displayDate(date)}</div>
-
       <div className="justify-self-end font-mono text-gray-500 dark:text-gray-400">
         <ObservedBalance address={address} />
       </div>

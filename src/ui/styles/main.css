@@ -34,7 +34,15 @@ body {
 }
 
 .content {
-  width: calc(100vw - 14rem);
+  width: 100vw;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .content {
+    width: calc(100vw - 14rem);
+    padding: 2.5rem;
+  }
 }
 
 .content main {
@@ -43,6 +51,18 @@ body {
 
 .content aside {
   width: 100%;
+}
+
+.sidebar {
+  min-width: 0;
+  width: 100vw;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    width: 14rem;
+    min-width: 14rem;
+  }
 }
 
 .__react_component_tooltip {
@@ -128,6 +148,15 @@ body {
     @apply mt-4 rounded px-4 py-2 text-xs font-bold text-gray-100 hover:underline disabled:cursor-not-allowed disabled:opacity-50;
   }
 }
+
+/* Make tables and tab lists horizontally scrollable on mobile */
+.table-responsive,
+.tabs-scrollable,
+.overflow-x-auto {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
